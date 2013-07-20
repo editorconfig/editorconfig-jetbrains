@@ -7,3 +7,6 @@
 
 # IntelliJ Settings
 .idea
+
+# Plugin builds
+*.zip
