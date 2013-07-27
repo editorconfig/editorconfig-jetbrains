@@ -1,3 +1,5 @@
+.DS_STORE
+
 *.class
 
 # Package Files #
@@ -10,3 +12,4 @@
 
 # Plugin builds
 *.zip
+
