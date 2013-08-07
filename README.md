@@ -5,6 +5,8 @@ A JetBrains IDE plugin supporting the EditorConfig standard.
 
 This page contains early releases of the EditorConfig plugin for JetBrains IDEs, including IntelliJ IDEA, PyCharm, WebStorm, RubyMine, and more.
 
+It is also available in the [JetBrains Plugin Repository] (http://plugins.jetbrains.com/plugin/7294), which can be accessed from within JetBrains IDEs by going to Settings > Plugins > Browse repositories...
+
 Installation Instructions:
 --------------------------
 
