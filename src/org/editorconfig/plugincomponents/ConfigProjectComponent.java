@@ -44,12 +44,14 @@ public class ConfigProjectComponent implements ProjectComponent {
     public void projectOpened() {
         // called when project is opened
         IdeFrame frame = WindowManager.getInstance().getIdeFrame(project);
-        Window window = (Window)frame;
+        final Window window = (Window)frame;
         window.addWindowFocusListener(codeStyleManager);
-
     }
 
     public void projectClosed() {
         // called when project is being closed
+        IdeFrame frame = WindowManager.getInstance().getIdeFrame(project);
+        final Window window = (Window) frame;
+        window.removeWindowFocusListener(codeStyleManager);
     }
 }
