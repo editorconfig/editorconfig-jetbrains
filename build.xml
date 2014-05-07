@@ -1,0 +1,34 @@
+<project name="editorconfig plugin" default="build">
+    <property name="project.home" value="${basedir}"/>
+    <property name="out.dir" value="${project.home}/out"/>
+    <property name="core.dir" value="${project.home}/../editorconfig-core-java"/>
+    <property name="idea.jar" value="${project.home}/idea.jar"/>
+
+    <target name="clean">
+        <delete dir="${out.dir}/classes" failonerror="false"/>
+        <delete dir="${out.dir}/zip" failonerror="false"/>
+    </target>
+
+    <target name="build-core">
+        <ant antfile="${core.dir}/build.xml" target="build" dir="${core.dir}"/>
+        <copy file="${core.dir}/lib/editorconfig-core-java.jar" todir="${out.dir}/zip/editorconfig-jetbrains/lib/" />
+    </target>
+
+    <target name="build" depends="clean,build-core">
+        <mkdir dir="${out.dir}/classes"/>
+        <mkdir dir="${out.dir}/zip/editorconfig-jetbrains/lib"/>
+
+        <javac srcdir="${project.home}/src" destdir="${out.dir}/classes">
+            <classpath>
+                <pathelement location="${idea.jar}" />
+                <pathelement location="${out.dir}/zip/editorconfig-jetbrains/lib/editorconfig-core-java.jar" />
+            </classpath>
+        </javac>
+        <mkdir dir="${out.dir}/classes/META-INF"/>
+        <copy todir="${out.dir}/classes/META-INF">
+            <fileset file="${project.home}/META-INF/plugin.xml"/>
+        </copy>
+        <jar basedir="${out.dir}/classes" jarfile="${out.dir}/zip/editorconfig-jetbrains/lib/editorconfig-jetbrains.jar" />
+        <zip file="${out.dir}/editorconfig-jetbrains.zip" basedir="${out.dir}/zip/"/>
+    </target>
+</project>
