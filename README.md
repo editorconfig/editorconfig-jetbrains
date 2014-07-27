@@ -36,9 +36,10 @@ The EditorConfig JetBrains plugin supports the following EditorConfig
 * tab_width
 * charset
 * root (only used by EditorConfig core)
+* trim_trailing_whitespace
+* insert_final_newline
 
-Support for trim_trailing_whitespace and insert_final_newline will be re-added soon once better support for customizing these settings is added in IntelliJ itself (see [this pull request]
-(https://github.com/JetBrains/intellij-community/pull/139)), and end_of_line is not supported due to difficulty of implementation in IntelliJ and because IntelliJ handles newlines quite intelligently already.
+end_of_line is not supported due to difficulty of implementation in IntelliJ and because IntelliJ handles newlines quite intelligently already.
 
 ## Bugs and Feature Requests
 
